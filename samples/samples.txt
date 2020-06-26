@@ -1,0 +1,1 @@
+create aggregation function sum (d:/o/p,classname,methodname, typename , [  string,number , boolean ,kk ])
