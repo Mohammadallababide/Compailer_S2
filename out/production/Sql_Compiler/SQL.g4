@@ -78,10 +78,22 @@ sql_stmt
 //                                      | simple_select_stmt
 //                                      | select_stmt
                                       | update_stmt
+                                      | create_type
 //                                      | update_stmt_limited
 //                                      | vacuum_stmt
                                        )
  ;
+
+
+create_type:
+K_CREATE K_TYPE use_random_name
+OPEN_PAR
+inside_create_type (COMMA inside_create_type)+
+CLOSE_PAR
+;
+inside_create_type:
+  use_random_name oneOftype_name
+;
 
 alter_table_stmt
 // : K_ALTER K_TABLE K_ONLY? ( database_name '.' )? source_table_name
@@ -313,10 +325,15 @@ column_def
  : column_name ( column_constraint | type_name )*
  ;
 
-type_name
- : name ( '(' signed_number1 ')'
-         | '(' signed_number2')' )?
- ;
+ type_name
+  : oneOftype_name ( '(' signed_number1 ')'
+          | '(' signed_number2 ')' )?
+  ;
+  oneOftype_name:
+  ((K_NUMBER | K_STRING | K_BOOLEAN |use_random_name))
+  ;
+
+
 signed_number1:
  signed_number (use_random_name)?
 ;
@@ -1546,6 +1563,7 @@ K_SAVEPOINT : S A V E P O I N T;
 K_SELECT : S E L E C T;
 K_SET : S E T;
 K_SWITCH: S W I T C H ;
+K_TYPE : T Y P E ;
 K_TABLE : T A B L E;
 K_TEMP : T E M P;
 K_TEMPORARY : T E M P O R A R Y;

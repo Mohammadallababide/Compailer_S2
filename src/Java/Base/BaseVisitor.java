@@ -6,6 +6,8 @@ import Java.AST.Parse;
 import Java.AST.QueryStmt.*;
 import Java.AST.QueryStmt.Alter_Stmt.*;
 import Java.AST.QueryStmt.Create_Stmt.*;
+import Java.AST.QueryStmt.Create_Type.Create_Type;
+import Java.AST.QueryStmt.Create_Type.InsideCreateType;
 import Java.AST.QueryStmt.Delete.DeleteStmt;
 import Java.AST.QueryStmt.Drop.DropStmt;
 import Java.AST.QueryStmt.InsertStmt.InsertStmt;
@@ -125,7 +127,7 @@ public class BaseVisitor extends SQLBaseVisitor {
         if(ctx.factored_select_stmt() != null){
             s = visitFactored_select_stmt(ctx.factored_select_stmt());
         }
-        if (ctx.delete_stmt() != null) {
+        else if (ctx.delete_stmt() != null) {
             s = visitDelete_stmt(ctx.delete_stmt());
         } else if (ctx.drop_table_stmt() != null) {
             s = visitDrop_table_stmt(ctx.drop_table_stmt());//todo check for more detail
@@ -138,6 +140,10 @@ public class BaseVisitor extends SQLBaseVisitor {
         } else if (ctx.update_stmt() != null) {
             s = visitUpdate_stmt(ctx.update_stmt());
         }
+        else if(ctx.create_type()!=null){
+            s = visitCreate_type(ctx.create_type());
+        }
+
 
         return s;
 
@@ -247,6 +253,7 @@ public class BaseVisitor extends SQLBaseVisitor {
     }
 
 
+
     @Override
     public ColumnDef visitColumn_def(SQLParser.Column_defContext ctx) {
         System.out.println("visitColumn_def");
@@ -340,7 +347,7 @@ public class BaseVisitor extends SQLBaseVisitor {
     public TypeName visitType_name(SQLParser.Type_nameContext ctx) {
         System.out.println("visitType_name");
         TypeName typeName = new TypeName();
-        if (ctx.name() != null) {
+        if (ctx.oneOftype_name() != null) {
             if (ctx.signed_number1() != null) {
                 typeName.setLim1(ctx.signed_number1().signed_number().NUMERIC_LITERAL().getText());
                 System.out.println("singed_number is : " + typeName.getLim1());
@@ -352,6 +359,44 @@ public class BaseVisitor extends SQLBaseVisitor {
         }
         return typeName;
     }
+
+
+
+    @Override
+    public Create_Type visitCreate_type(SQLParser.Create_typeContext ctx){
+        System.out.println("visit_creat_type");
+        Create_Type create_type = new Create_Type();
+        if(ctx.use_random_name()!=null){
+            create_type.setNameOfType(ctx.use_random_name().getText());
+            if(ctx.inside_create_type()!=null){
+                List<InsideCreateType> insideCreateTypes =  new ArrayList<>();
+                for(int i=0; i<ctx.inside_create_type().size();i++){
+                    insideCreateTypes.add(visitInside_create_type(ctx.inside_create_type(i)));
+                }
+                create_type.setInsideCreateTypeList(insideCreateTypes);
+            }
+            create_type.setName("Create_Type");
+        }
+        return create_type;
+    }
+
+    @Override
+    public InsideCreateType visitInside_create_type(SQLParser.Inside_create_typeContext ctx){
+        System.out.println("visit_inside_create_type");
+        InsideCreateType insideCreateType = new InsideCreateType();
+        if(ctx.use_random_name()!=null){
+            insideCreateType.setNameOfColumnOfType(ctx.use_random_name().getText());
+            System.out.println("the column of type is "+insideCreateType.getNameOfColumnOfType());
+            if(ctx.oneOftype_name()!=null){
+
+                insideCreateType.setType(ctx.oneOftype_name().getText());
+            }
+            return insideCreateType;
+        }
+        return null;
+    }
+
+
 
 
     @Override

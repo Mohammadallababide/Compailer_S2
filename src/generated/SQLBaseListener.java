@@ -1,4 +1,4 @@
-// Generated from D:/compiler version seconde semester/Compiler for the seconde semester/kkkk/Compiler 2 one for (seconde semester )/Compiler 2 one for (seconde semester )/src\SQL.g4 by ANTLR 4.7.2
+// Generated from C:/Users/Dell/Desktop/compile_s2/Compailer_S2/src\SQL.g4 by ANTLR 4.8
 package generated;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -59,6 +59,30 @@ public class SQLBaseListener implements SQLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSql_stmt(SQLParser.Sql_stmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCreate_type(SQLParser.Create_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCreate_type(SQLParser.Create_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInside_create_type(SQLParser.Inside_create_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInside_create_type(SQLParser.Inside_create_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -275,6 +299,18 @@ public class SQLBaseListener implements SQLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitType_name(SQLParser.Type_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOneOftype_name(SQLParser.OneOftype_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOneOftype_name(SQLParser.OneOftype_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

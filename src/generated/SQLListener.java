@@ -1,4 +1,4 @@
-// Generated from D:/compiler version seconde semester/Compiler for the seconde semester/kkkk/Compiler 2 one for (seconde semester )/Compiler 2 one for (seconde semester )/src\SQL.g4 by ANTLR 4.7.2
+// Generated from C:/Users/Dell/Desktop/compile_s2/Compailer_S2/src\SQL.g4 by ANTLR 4.8
 package generated;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -47,6 +47,26 @@ public interface SQLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSql_stmt(SQLParser.Sql_stmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SQLParser#create_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreate_type(SQLParser.Create_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SQLParser#create_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreate_type(SQLParser.Create_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SQLParser#inside_create_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterInside_create_type(SQLParser.Inside_create_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SQLParser#inside_create_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitInside_create_type(SQLParser.Inside_create_typeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SQLParser#alter_table_stmt}.
 	 * @param ctx the parse tree
@@ -227,6 +247,16 @@ public interface SQLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitType_name(SQLParser.Type_nameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SQLParser#oneOftype_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterOneOftype_name(SQLParser.OneOftype_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SQLParser#oneOftype_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitOneOftype_name(SQLParser.OneOftype_nameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SQLParser#signed_number1}.
 	 * @param ctx the parse tree

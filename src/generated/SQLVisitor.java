@@ -1,4 +1,4 @@
-// Generated from D:/compiler version seconde semester/Compiler for the seconde semester/kkkk/Compiler 2 one for (seconde semester )/Compiler 2 one for (seconde semester )/src\SQL.g4 by ANTLR 4.7.2
+// Generated from C:/Users/Dell/Desktop/compile_s2/Compailer_S2/src\SQL.g4 by ANTLR 4.8
 package generated;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -34,6 +34,18 @@ public interface SQLVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSql_stmt(SQLParser.Sql_stmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SQLParser#create_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCreate_type(SQLParser.Create_typeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SQLParser#inside_create_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInside_create_type(SQLParser.Inside_create_typeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SQLParser#alter_table_stmt}.
 	 * @param ctx the parse tree
@@ -142,6 +154,12 @@ public interface SQLVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitType_name(SQLParser.Type_nameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SQLParser#oneOftype_name}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOneOftype_name(SQLParser.OneOftype_nameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SQLParser#signed_number1}.
 	 * @param ctx the parse tree
