@@ -4,7 +4,7 @@ import Java.AST.QueryStmt.Statement;
 import Java.AST.commn_classes_Sql.name_rule.DataBaseName;
 import Java.AST.commn_classes_Sql.name_rule.TableName;
 import Java.Visitor.AstVistor;
-import javafx.scene.control.Tab;
+
 
 /**
  * Created by moham on 12/31/2019.

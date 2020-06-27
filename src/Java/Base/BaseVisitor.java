@@ -28,7 +28,6 @@ import Java.AST.instruction.all_the_non_functional_instructions.One_line_if;
 import Java.SymbolTable.AggregationFunction;
 import Java.SymbolTable.jar_path;
 import Java.SymbolTable.parametes;
-import com.sun.javafx.animation.TickCalculation;
 import generated.SQLBaseVisitor;
 import generated.SQLParser;
 
