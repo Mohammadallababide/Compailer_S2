@@ -155,13 +155,25 @@ table_constraint_or_column_def rule
 create_table_stmt
 // : K_CREATE ( K_TEMP | K_TEMPORARY )? K_TABLE ( K_IF K_NOT K_EXISTS )?
  : K_CREATE  K_TABLE ( K_IF K_NOT K_EXISTS )?
-   ( database_name '.' )? table_name
+//   ( database_name '.' )?
+   table_name
 //   ( '(' column_def ( ',' table_constraint | ',' column_def )* ')' ( K_WITHOUT IDENTIFIER )?
-   ( '(' column_def ( ',' table_constraint | ',' column_def )* ')'
+   ( OPEN_PAR column_def ( ',' table_constraint | ',' column_def )* CLOSE_PAR
+   declare_type_table
+   COMMA
+   declare_path_table)
    | K_AS select_stmt
 //   ) (unknown)?
-   )
+
  ;
+
+declare_type_table:
+K_TYPE ASSIGN IDENTIFIER
+;
+
+declare_path_table:
+K_PATH ASSIGN IDENTIFIER
+;
 
 //create_trigger_stmt
 // : K_CREATE ( K_TEMP | K_TEMPORARY )? K_TRIGGER ( K_IF K_NOT K_EXISTS )?
@@ -1592,6 +1604,7 @@ K_AGGREGATION : A G G  R E G A T I O N ;
 K_STRING: S T R I N G  ;
 K_BOOLEAN : B O O L E A N ;
 K_NUMBER : N U M B E R ;
+K_PATH : P A T H ;
  ONE_CHAR_LETTER :
 '\'' ( ~'\'' | '\'\'' ) '\''
  ;

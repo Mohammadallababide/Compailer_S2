@@ -1,0 +1,3 @@
+Create Table Student (Id number, Name string,
+DateOfBirthEpoch bignumber, HomeAddress Address,
+WorkAddress Address)type = "json" , path = "D://Desctop//table.path" ;

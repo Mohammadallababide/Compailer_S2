@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ccdf784-7db1-4a20-93c5-15047eb4495d" name="Default" comment="form Line 778 -&gt; 807 add array features &#10;from Line 925 -&gt; 939 add json object with some simple edit&#10;after presentation">
-      <change afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Create_Type/Create_Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Create_Type/InsideCreateType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Create_Stmt/DeclarePathTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Create_Stmt/DeclareTypeTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sql_Compiler/SQL.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sql_Compiler/SQL.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sql_Compiler/generated/SQL.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sql_Compiler/generated/SQL.interp" afterDir="false" />
@@ -30,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/Sql_Compiler/generated/SQLLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sql_Compiler/generated/SQLLexer.interp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sql_Compiler/generated/SQLLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sql_Compiler/generated/SQLLexer.tokens" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/samples/samples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/samples/samples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Create_Stmt/CreateTableStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/AST/QueryStmt/Create_Stmt/CreateTableStmt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Java/Base/BaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Java/Base/BaseVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/generated/SQL.interp" beforeDir="false" />
@@ -344,67 +344,75 @@
     <option name="LAST_COMMIT_MESSAGE" value="form Line 778 -&gt; 807 add array features &#10;from Line 925 -&gt; 939 add json object with some simple edit&#10;after presentation" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1593305975785">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1593305975785" />
     <state x="389" y="125" key="FileChooserDialogImpl" timestamp="1593289077970">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="389" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1593289077970" />
-    <state width="1321" height="192" key="GridCell.Tab.0.bottom" timestamp="1593291097204">
+    <state width="1321" height="192" key="GridCell.Tab.0.bottom" timestamp="1593306189987">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1593291097204" />
-    <state width="1321" height="192" key="GridCell.Tab.0.center" timestamp="1593291097203">
+    <state width="1321" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1593306189987" />
+    <state width="1321" height="192" key="GridCell.Tab.0.center" timestamp="1593306189987">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1593291097203" />
-    <state width="1321" height="192" key="GridCell.Tab.0.left" timestamp="1593291097203">
+    <state width="1321" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1593306189987" />
+    <state width="1321" height="192" key="GridCell.Tab.0.left" timestamp="1593306189986">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1593291097203" />
-    <state width="1321" height="192" key="GridCell.Tab.0.right" timestamp="1593291097204">
+    <state width="1321" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1593306189986" />
+    <state width="1321" height="192" key="GridCell.Tab.0.right" timestamp="1593306189987">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1593291097204" />
+    <state width="1321" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1593306189987" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1593280321770">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1593280321770" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1593304810765">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1593304810765" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>2073</line>
+          <line>2105</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>2022</line>
+          <line>2054</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1797</line>
+          <line>1829</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1808</line>
+          <line>1840</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1252</line>
+          <line>1284</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1241</line>
+          <line>1273</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1225</line>
+          <line>1257</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -414,32 +422,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1891</line>
+          <line>1923</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>1338</line>
+          <line>1370</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>2514</line>
+          <line>2546</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>2473</line>
+          <line>2505</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>2480</line>
+          <line>2512</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Java/Base/BaseVisitor.java</url>
-          <line>2497</line>
+          <line>2529</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>

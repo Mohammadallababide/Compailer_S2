@@ -18,6 +18,24 @@ public class CreateTableStmt extends Statement {
  private List<TableConstraint> tableConstraints = new ArrayList<>();
  private List<ColumnDef> columnDefs = new ArrayList<>();
  private select_stmt select_stmt ;
+ private DeclareTypeTable declareTypeTable;
+ private DeclarePathTable declarePathTable;
+
+    public DeclareTypeTable getDeclareTypeTable() {
+        return declareTypeTable;
+    }
+
+    public void setDeclareTypeTable(DeclareTypeTable declareTypeTable) {
+        this.declareTypeTable = declareTypeTable;
+    }
+
+    public DeclarePathTable getDeclarePathTable() {
+        return declarePathTable;
+    }
+
+    public void setDeclarePathTable(DeclarePathTable declarePathTable) {
+        this.declarePathTable = declarePathTable;
+    }
 
     @Override
     public void accept(AstVistor astVisitor) {

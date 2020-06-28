@@ -128,6 +128,26 @@ public interface SQLListener extends ParseTreeListener {
 	 */
 	void exitCreate_table_stmt(SQLParser.Create_table_stmtContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SQLParser#declare_type_table}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclare_type_table(SQLParser.Declare_type_tableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SQLParser#declare_type_table}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclare_type_table(SQLParser.Declare_type_tableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SQLParser#declare_path_table}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclare_path_table(SQLParser.Declare_path_tableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SQLParser#declare_path_table}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclare_path_table(SQLParser.Declare_path_tableContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SQLParser#delete_stmt}.
 	 * @param ctx the parse tree
 	 */

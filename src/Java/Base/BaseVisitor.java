@@ -220,12 +220,13 @@ public class BaseVisitor extends SQLBaseVisitor {
     public CreateTableStmt visitCreate_table_stmt(SQLParser.Create_table_stmtContext ctx) {
         System.out.println("visitCreate_table_stmt");
         CreateTableStmt createTableStmt = new CreateTableStmt();
-        if(ctx.database_name()!=null) {
-            createTableStmt.setDataBaseName(visitDatabase_name(ctx.database_name()));
-        }
+//        if(ctx.database_name()!=null) {
+//            createTableStmt.setDataBaseName(visitDatabase_name(ctx.database_name()));
+//        }
         if(ctx.table_name()!=null){
             createTableStmt.setTableName(visitTable_name(ctx.table_name()));
-            if(ctx.column_def()!=null){
+            if(ctx.column_def()!=null)
+            {
                 List<ColumnDef> columnDefs = new ArrayList<>();
                 for (int i = 0; i <ctx.column_def().size() ; i++) {
                     columnDefs.add(visitColumn_def(ctx.column_def(i)));
@@ -238,9 +239,18 @@ public class BaseVisitor extends SQLBaseVisitor {
                     }
                     createTableStmt.setTableConstraints(tableConstraints);
                 }
-                if(ctx.select_stmt()!=null){
-                    createTableStmt.setSelect_stmt(visitSelect_stmt(ctx.select_stmt()));
+                if(ctx.declare_type_table()!=null)
+                {
+                    createTableStmt.setDeclareTypeTable(visitDeclare_type_table(ctx.declare_type_table()));
+                    if(ctx.COMMA()!=null&&ctx.declare_path_table()!=null)
+                    {
+                        createTableStmt.setDeclarePathTable(visitDeclare_path_table(ctx.declare_path_table()));
+//
+                    }
                 }
+            }
+            else if(ctx.select_stmt()!=null){
+                createTableStmt.setSelect_stmt(visitSelect_stmt(ctx.select_stmt()));
             }
 
         }
@@ -252,6 +262,28 @@ public class BaseVisitor extends SQLBaseVisitor {
         return createTableStmt;
     }
 
+
+    @Override
+    public DeclareTypeTable visitDeclare_type_table(SQLParser.Declare_type_tableContext ctx) {
+        System.out.println("Visit Declare_type_table");
+        DeclareTypeTable declareTypeTable = new DeclareTypeTable();
+        if(ctx.K_TYPE()!=null &&ctx.ASSIGN()!=null &&ctx.IDENTIFIER()!=null)
+        {
+            declareTypeTable.setType(ctx.IDENTIFIER().getText());
+        }
+        return declareTypeTable ;
+    }
+
+
+    @Override public DeclarePathTable visitDeclare_path_table(SQLParser.Declare_path_tableContext ctx) {
+        System.out.println("Visit Declare_path_table");
+        DeclarePathTable declarePathTable = new DeclarePathTable();
+        if(ctx.K_PATH()!=null && ctx.ASSIGN()!=null&&ctx.IDENTIFIER()!=null)
+        {
+            declarePathTable.setPath(ctx.IDENTIFIER().getText());
+        }
+        return declarePathTable;
+    }
 
 
     @Override
